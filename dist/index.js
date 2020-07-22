@@ -6617,7 +6617,7 @@ class UploadHttpClient {
             else if (utils_1.isForbiddenStatusCode(rawResponse.message.statusCode)) {
                 // if a 403 is returned when trying to create a file container, the customer has exceeded
                 // their storage quota so no new artifact containers can be created
-                throw new Error(`Artifact storage quota has been hit. Unable to upload any new artifacts`);
+                throw new Error(`Artifact storage quota has been hit. Unable to upload any new artifacts ${artifactName} at ${artifactUrl}  statusCode ${rawResponse.message.statusCode}  body ${body}`);
             }
             else {
                 utils_1.displayHttpDiagnostics(rawResponse);
